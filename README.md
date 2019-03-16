@@ -1,6 +1,6 @@
 # How to Work with Computers (MEDG Edition)
 
-<img src="http://i.freegifmaker.me/1/5/5/2/6/7/15526742812640978.gif" width="500px" />
+<img src="imgs/howtobasic.gif" width="500px" />
 
 ## Overview
 
