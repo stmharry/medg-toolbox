@@ -50,8 +50,6 @@ Ever feel frustrated when
 local~$ mosh $MY_ID@nightingale.csail.mit.edu
 ```
 
-// TODO
-
 ---
 
 ## Jupyter Notebook
@@ -227,7 +225,7 @@ Useful packages for various purposes
 
 - [`powerline-status`](https://powerline.readthedocs.io): Fancy, and most importantly useful status bar for bash
 
-// TODO
+<img src="imgs/powerline.png" width="100%" />
 
 ---
 
