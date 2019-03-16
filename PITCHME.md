@@ -113,7 +113,7 @@ Some very useful command
 
 - `htop`: monitors basically everything, from CPU load, memory, to process IDs
 
-// TODO
+<img src="imgs/htop.png" width="100%" />
 
 ---
 
