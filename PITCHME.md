@@ -2,6 +2,8 @@
 
 <img src="imgs/howtobasic.gif" width="500px" />
 
+---
+
 ## Overview
 
 - Local
@@ -22,11 +24,15 @@
     - [Starting a Project](#starting-a-project)
     - [Harry's Setup](#harrys-setup)
 
+---
+
 ## Terminal
 
 - Grab a good terminal application! (I personally use iTerm2 for Mac)
 - Grab a good font! (I personally use Meslo 13pt)
 - Grab a good screen!
+
+---
 
 ## Mobile Shell (`mosh`)
 
@@ -42,6 +48,8 @@ local~$ mosh $MY_ID@nightingale.csail.mit.edu
 ```
 
 // TODO
+
+---
 
 ## Jupyter Notebook
 
@@ -75,9 +83,13 @@ alias notebook="jupyter notebook --ip 0.0.0.0 --port $MY_FAV_PORT --no-browser"
 
 and always go to `http://nightingale.csail.mit.edu:$MY_FAV_PORT`.
 
+---
+
 #### Did you know there's a terminal interface?
 
 <img src="imgs/notebook.png" width="100%" />
+
+---
 
 ## Bourne Shell (`bash`)
 
@@ -105,6 +117,8 @@ Some very useful command
 - `htop`: monitors basically everything, from CPU load, memory, to process IDs
 
 // TODO
+
+---
 
 ## Terminal Multiplexer (`tmux`) and `longtmux`
 
@@ -137,6 +151,8 @@ When your ticket expire on the server
 remote~$ kinit && aklog
 ```
 
+---
+
 #### There are more with `tmux`!
 - Custom status bar
 - Split panes
@@ -163,6 +179,8 @@ set-option -g visual-activity on
 ```
 
 <img src="imgs/tmux.png" width="100%" />
+
+---
 
 ## Anaconda (`conda`)
 
@@ -191,6 +209,8 @@ remote~$ conda env create --prefix $SHARED_FOLDER python=3.6.5 --copy
 - `conda` can be slow installing packages as it checks beyond python package dependencies: it also checks for library dependencies
 - When you encounter `OSError: [Errno 28] No space left on device`: this is because `conda` caches packages in your `~/.conda`. Simply do `conda clean -a`
 
+---
+
 ## `pip`
 Ever feel frustrated when
 - `conda` takes forever to install simple packages?
@@ -217,6 +237,8 @@ Useful packages for various purposes
 
 // TODO
 
+---
+
 ## GPU (Very important!)
 
 Ever feel frustrated when
@@ -232,6 +254,8 @@ Ever feel frustrated when
     session = tf.Session(config=config, ...)
     ```
 - Set `CUDA_VISIBLE_DEVICES` environment variable before running the program
+
+---
 
 ## Hard Disk
 
@@ -258,6 +282,8 @@ Ever feel frustrated when
 - What about the disks? How much space is left? `df -h`
 
 
+---
+
 ## Case study
 
 ### Starting a project
@@ -271,6 +297,8 @@ Ever feel frustrated when
 1. When you are running tasks, try `htop` and `nvidia-smi` (or `watch --color gpustat -ucp --color`) to determine the best machines/GPUs. Try not to overuse hardware resources.
 1. Save intermediate results/models to local project directory.
 1. Periodically push your local `git` commits to GitHub.
+
+---
 
 ### Harry's setup
 
