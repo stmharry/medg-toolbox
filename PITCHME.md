@@ -1,6 +1,6 @@
-# How to Work with Computers (MEDG Edition)
+# How to Work with Computers
 
-<img src="imgs/howtobasic.gif" width="500px" />
+<img src="http://i.freegifmaker.me/1/5/5/2/6/7/15526742812640978.gif" width="500px" />
 
 ---
 
@@ -11,6 +11,9 @@
 - Interface
     - [Mobile shell](#mobile-shell-mosh) (`mosh`, no more `ssh`!)
     - [Jupyter notebook](#jupyter-notebook)
+
+---
+
 - Remote
     - Software
         - [Bourne Shell (`bash`)](#bourne-shell-bash)
@@ -61,17 +64,7 @@ Ever feel frustrated when
     ```bash
     /usr/bin/xdg-open: 778: /usr/bin/xdg-open: iceweasel: not found
     /usr/bin/xdg-open: 778: /usr/bin/xdg-open: seamonkey: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: mozilla: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: epiphany: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: konqueror: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: chromium-browser: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: google-chrome: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: www-browser: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: links2: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: elinks: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: links: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: lynx: not found
-    /usr/bin/xdg-open: 778: /usr/bin/xdg-open: w3m: not found
+    ...
     ```
 
 #### No sweat!
@@ -98,6 +91,8 @@ Ever feel frustrated when
 - there is not a default virtual environment when you log in?
 - always having to type `nvidia-smi` for `nvidia-smi`?
 
+---
+
 #### No sweat!
 
 Just add aliases and startup scripts to `~/.bashrc`!
@@ -110,6 +105,8 @@ fi
 
 alias smi="nvidia-smi"
 ```
+
+---
 
 #### Notes
 Some very useful command
@@ -135,6 +132,7 @@ Ever feel frustrated when
     Current thread 0x00007f2e99afc700 (most recent call first):
     Aborted
     ```
+---
 
 #### No sweat!
 ```bash
@@ -163,18 +161,6 @@ remote~$ kinit && aklog
 # remote:~/.tmux.conf
 set-option -g base-index 1
 set-option -g default-terminal "screen-256color"
-set-option -g escape-time 0
-set-option -g prefix C-a
-set-option -g status-attr default
-set-option -g status-bg colour235
-set-option -g status-fg colour136
-set-option -g status-interval 1
-set-option -g status-justify centre
-set-option -g status-left "#[fg=green][ #H ]#[default]"
-set-option -g status-left-length 20
-set-option -g status-right "#[fg=green][ #[fg=blue]%Y-%m-%d #[fg=white]%l:%M:%S %p #[fg=green]]#[default]"
-set-option -g status-right-length 40
-set-option -g visual-activity on
 # ... (see .tmux.conf for more)
 ```
 
@@ -187,6 +173,8 @@ set-option -g visual-activity on
 Ever feel frustrated when
 - you find messy package dependencies that `pip` does not quite manage well
 - you want to share virtual environment between collaborators
+
+---
 
 #### No sweat!
 
@@ -204,6 +192,8 @@ remote~$ deactivate
 remote~$ conda env create --prefix $SHARED_FOLDER python=3.6.5 --copy
 ```
 
+---
+
 #### Notes
 
 - `conda` can be slow installing packages as it checks beyond python package dependencies: it also checks for library dependencies
@@ -220,6 +210,8 @@ Ever feel frustrated when
 ```bash
 remote~$ pip install -r requirements.txt
 ```
+
+---
 
 #### Notes
 Useful packages for various purposes
@@ -264,6 +256,8 @@ Ever feel frustrated when
 - migrating data across devices to work across machines?
 - oh snap I deleted my code!
 
+---
+
 #### No sweat!
 
 (Information in the table may not be accurate, please correct me)
@@ -289,14 +283,17 @@ Ever feel frustrated when
 ### Starting a project
 
 1. Figure out a group name of the project, and ask system admin to create a user group on all machines (or the specific machine you are working on) with all collaborators added the group.
-1. Identify a dataset root (e.g., `/data/medg/misc/definitely-not-cryptomining`) with the correct group access (`chgrp -R ...`).
-1. Locate a folder for code (e.g., `~/definitely-not-cryptomining`). Note that the code should be only accessible by you; any code sharing should happen over version control software.
-1. Find a local working root directory (e.g. `/scratch/definitely-not-cryptomining`), and sync data over with `scp`.
-1. (Optional, but extremely recommended) Instantiate a shared virtual environment in the local directory.
-1. Happy coding.
-1. When you are running tasks, try `htop` and `nvidia-smi` (or `watch --color gpustat -ucp --color`) to determine the best machines/GPUs. Try not to overuse hardware resources.
-1. Save intermediate results/models to local project directory.
-1. Periodically push your local `git` commits to GitHub.
+2. Identify a dataset root (e.g., `/data/medg/misc/definitely-not-cryptomining`) with the correct group access (`chgrp -R ...`).
+---
+3. Locate a folder for code (e.g., `~/definitely-not-cryptomining`). Note that the code should be only accessible by you; any code sharing should happen over version control software.
+4. Find a local working root directory (e.g. `/scratch/definitely-not-cryptomining`), and sync data over with `scp`.
+---
+5. (Optional, but extremely recommended) Instantiate a shared virtual environment in the local directory.
+6. Happy coding.
+7. When you are running tasks, try `htop` and `nvidia-smi` (or `watch --color gpustat -ucp --color`) to determine the best machines/GPUs. Try not to overuse hardware resources.
+---
+8. Save intermediate results/models to local project directory.
+9. Periodically push your local `git` commits to GitHub.
 
 ---
 
@@ -310,6 +307,7 @@ Ever feel frustrated when
         mosh stmharry@$1.csail.mit.edu tmux a
     }
     ```
+---
 1. I can access different machines on different iTerm tabs, and since inside a `tmux` session I as well have tabs for file editing, program running, and resource monitoring. (i.e. `tmux` tabs under iTerm tabs)
 1. I use `vim` as the editor for most code editing for a lot of `python` handy plugins. I can edit a handful of files at the same time for its support for tabs. (i.e. `vim` tabs under `tmux` tabs under iTerm tabs)
 1. In my `~/.bashrc` there are a few aliases that helps me with commands.
