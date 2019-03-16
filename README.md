@@ -244,6 +244,7 @@ Ever feel frustrated when
 (Need discussion here)
 
 | type                     | mount path                             | purpose                         | backup                          |
+|--------------------------|----------------------------------------|---------------------------------|---------------------------------|
 | AFS                      | `~` or `/afs/csail.mit.edu/u/m/$MY_ID` | lightweight files (code, cache) | `~/.snapshot`                   |
 | NFS (production tier)    | `/data/medg`                           | (raw data)?                     | `/data/medg/misc/.zfs/snapshot` |
 | Local (on `nightingale`) | `/crimea`                              | datasets                        |                                 |
