@@ -18,6 +18,9 @@
     - Hardware
         - [GPU](#gpu-very-important)
         - [Hard Disk](#hard-disk)
+- [Case Study](#case-study)
+    - [Starting a Project](#starting-a-project)
+    - [Harry's Setup](#harrys-setup)
 
 ## Terminal
 
