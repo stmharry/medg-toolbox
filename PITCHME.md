@@ -298,8 +298,8 @@ Ever feel frustrated when
 
 #### No sweat!
 
-(Information in the table may not be accurate, please correct me)
-(Need discussion here)
+- Information in the table may not be accurate, please correct me
+- Need discussion here: periodic housekeeping?
 
 | Type                  | Mount path                             | Purpose                         | Backup                          |
 |-----------------------|----------------------------------------|---------------------------------|---------------------------------|
