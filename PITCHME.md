@@ -255,6 +255,8 @@ Ever feel frustrated when
 - some takes all available GPU memory but not actually performing any computation?
 - managing multiple experiments running on multiple machines?
 
+---
+
 #### No sweat!
 
 - Limit memory growth!
@@ -282,12 +284,14 @@ Ever feel frustrated when
 (Information in the table may not be accurate, please correct me)
 (Need discussion here)
 
-| type                     | mount path                             | purpose                         | backup                          |
-|--------------------------|----------------------------------------|---------------------------------|---------------------------------|
-| AFS                      | `~` or `/afs/csail.mit.edu/u/m/$MY_ID` | lightweight files (code, cache) | `~/.snapshot`                   |
-| NFS (production tier)    | `/data/medg`                           | (raw data)?                     | `/data/medg/misc/.zfs/snapshot` |
-| Local (on `nightingale`) | `/crimea`                              | datasets                        |                                 |
-| Local (each machine)     | `/scratch`                             | (cached data, models)?          |                                 |
+| type                  | mount path                             | purpose                         | backup                          |
+|-----------------------|----------------------------------------|---------------------------------|---------------------------------|
+| AFS                   | `~` or `/afs/csail.mit.edu/u/m/$MY_ID` | lightweight files (code, cache) | `~/.snapshot`                   |
+| NFS (production tier) | `/data/medg`                           | (raw data)?                     | `/data/medg/misc/.zfs/snapshot` |
+| Local (each machine)  | `/crimea`                              | datasets                        |                                 |
+| Local (each machine)  | `/scratch`                             | (cached data, models)?          |                                 |
+
+---
 
 #### Notes
 
