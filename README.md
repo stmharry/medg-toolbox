@@ -3,6 +3,7 @@
 <img src="http://i.freegifmaker.me/1/5/5/2/6/7/15526742812640978.gif" width="500px" />
 
 
+
 ## Overview
 
 - Local
@@ -10,6 +11,7 @@
 - Interface
     - [Mobile shell](#mobile-shell-mosh) (`mosh`, no more `ssh`!)
     - [Jupyter notebook](#jupyter-notebook)
+
 
 
 - Remote
@@ -26,11 +28,13 @@
     - [Harry's Setup](#harrys-setup)
 
 
+
 ## Terminal
 
 - Grab a good terminal application! (I personally use iTerm2 for Mac)
 - Grab a good font! (I personally use Meslo 13pt)
 - Grab a good screen!
+
 
 
 ## Mobile Shell (`mosh`)
@@ -45,6 +49,7 @@ Ever feel frustrated when
 ```bash
 local~$ mosh $MY_ID@nightingale.csail.mit.edu
 ```
+
 
 
 ## Jupyter Notebook
@@ -70,9 +75,11 @@ alias notebook="jupyter notebook --ip 0.0.0.0 --port $MY_FAV_PORT --no-browser"
 and always go to `http://nightingale.csail.mit.edu:$MY_FAV_PORT`.
 
 
+
 #### Did you know there's a terminal interface?
 
 <img src="imgs/notebook.png" width="100%" />
+
 
 
 ## Bourne Shell (`bash`)
@@ -81,6 +88,7 @@ Ever feel frustrated when
 
 - there is not a default virtual environment when you log in?
 - always having to type `nvidia-smi` for `nvidia-smi`?
+
 
 
 #### No sweat!
@@ -97,12 +105,14 @@ alias smi="nvidia-smi"
 ```
 
 
+
 #### Notes
 Some very useful command
 
 - `htop`: monitors basically everything, from CPU load, memory, to process IDs
 
 <img src="imgs/htop.png" width="100%" />
+
 
 
 ## Terminal Multiplexer (`tmux`) and `longtmux`
@@ -121,6 +131,7 @@ Ever feel frustrated when
     Aborted
     ```
 
+
 #### No sweat!
 ```bash
 # Getting your Kerberos ticket, "--keychain" enables you to use only "kinit" from now on
@@ -135,6 +146,7 @@ When your ticket expire on the server
 ```bash
 remote~$ kinit && aklog
 ```
+
 
 
 #### There are more with `tmux`!
@@ -153,11 +165,13 @@ set-option -g default-terminal "screen-256color"
 <img src="imgs/tmux.png" width="100%" />
 
 
+
 ## Anaconda (`conda`)
 
 Ever feel frustrated when
 - you find messy package dependencies that `pip` does not quite manage well
 - you want to share virtual environment between collaborators
+
 
 
 #### No sweat!
@@ -177,10 +191,12 @@ remote~$ conda env create --prefix $SHARED_FOLDER python=3.6.5 --copy
 ```
 
 
+
 #### Notes
 
 - `conda` can be slow installing packages as it checks beyond python package dependencies: it also checks for library dependencies
 - When you encounter `OSError: [Errno 28] No space left on device`: this is because `conda` caches packages in your `~/.conda`. Simply do `conda clean -a`
+
 
 
 ## `pip`
@@ -194,6 +210,7 @@ remote~$ pip install -r requirements.txt
 ```
 
 
+
 #### Notes
 Useful packages for various purposes
 
@@ -201,14 +218,35 @@ Useful packages for various purposes
 
 <img src="imgs/gpustat.png" width="100%" />
 
+
+
 - [`tqdm`](https://github.com/tqdm/tqdm): nice progress bar to monitor training progress
 - [`htmltag`](http://liftoff.github.io/htmltag/) + [`json2html`](https://pypi.org/project/json2html/): pretty demo for your project
 
 <img src="imgs/htmltag.png" width="100%" />
 
-- [`powerline-status`](https://powerline.readthedocs.io): Fancy, and most importantly useful status bar for bash
+
+
+- [`powerline-shell`](https://github.com/b-ryan/powerline-shell): Fancy, and most importantly useful status bar for bash
+```bash
+remote~$ pip install powerline-shell
+```
+
+```bash
+# remote:~/.bashrc
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+```
+
+
 
 <img src="imgs/powerline.png" width="100%" />
+
 
 
 ## GPU (Very important!)
@@ -226,6 +264,8 @@ Ever feel frustrated when
     session = tf.Session(config=config, ...)
     ```
 - Set `CUDA_VISIBLE_DEVICES` environment variable before running the program
+- Fill in [GPU allocation sheets](https://docs.google.com/spreadsheets/d/10hdQNCOegGkD8SFQAhDQd5trTR565vDURCsT49vq0Qs/edit#gid=1943100504)!
+
 
 
 ## Hard Disk
@@ -234,6 +274,7 @@ Ever feel frustrated when
 - running out of disk space right before a deadline?
 - migrating data across devices to work across machines?
 - oh snap I deleted my code!
+
 
 
 #### No sweat!
@@ -255,19 +296,24 @@ Ever feel frustrated when
 
 
 
+
 ## Case study
 
 ### Starting a project
 
 1. Figure out a group name of the project, and ask system admin to create a user group on all machines (or the specific machine you are working on) with all collaborators added the group.
 2. Identify a dataset root (e.g., `/data/medg/misc/definitely-not-cryptomining`) with the correct group access (`chgrp -R ...`).
+
 3. Locate a folder for code (e.g., `~/definitely-not-cryptomining`). Note that the code should be only accessible by you; any code sharing should happen over version control software.
 4. Find a local working root directory (e.g. `/scratch/definitely-not-cryptomining`), and sync data over with `scp`.
+
 5. (Optional, but extremely recommended) Instantiate a shared virtual environment in the local directory.
 6. Happy coding.
 7. When you are running tasks, try `htop` and `nvidia-smi` (or `watch --color gpustat -ucp --color`) to determine the best machines/GPUs. Try not to overuse hardware resources.
+
 8. Save intermediate results/models to local project directory.
 9. Periodically push your local `git` commits to GitHub.
+
 
 
 ### Harry's setup
@@ -280,6 +326,7 @@ Ever feel frustrated when
         mosh stmharry@$1.csail.mit.edu tmux a
     }
     ```
+
 1. I can access different machines on different iTerm tabs, and since inside a `tmux` session I as well have tabs for file editing, program running, and resource monitoring. (i.e. `tmux` tabs under iTerm tabs)
 1. I use `vim` as the editor for most code editing for a lot of `python` handy plugins. I can edit a handful of files at the same time for its support for tabs. (i.e. `vim` tabs under `tmux` tabs under iTerm tabs)
 1. In my `~/.bashrc` there are a few aliases that helps me with commands.

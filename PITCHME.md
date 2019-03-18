@@ -218,12 +218,32 @@ Useful packages for various purposes
 
 <img src="imgs/gpustat.png" width="100%" />
 
+---
+
 - [`tqdm`](https://github.com/tqdm/tqdm): nice progress bar to monitor training progress
 - [`htmltag`](http://liftoff.github.io/htmltag/) + [`json2html`](https://pypi.org/project/json2html/): pretty demo for your project
 
 <img src="imgs/htmltag.png" width="100%" />
 
-- [`powerline-status`](https://powerline.readthedocs.io): Fancy, and most importantly useful status bar for bash
+---
+
+- [`powerline-shell`](https://github.com/b-ryan/powerline-shell): Fancy, and most importantly useful status bar for bash
+```bash
+remote~$ pip install powerline-shell
+```
+
+```bash
+# remote:~/.bashrc
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+```
+
+---
 
 <img src="imgs/powerline.png" width="100%" />
 
@@ -244,6 +264,7 @@ Ever feel frustrated when
     session = tf.Session(config=config, ...)
     ```
 - Set `CUDA_VISIBLE_DEVICES` environment variable before running the program
+- Fill in [GPU allocation sheets](https://docs.google.com/spreadsheets/d/10hdQNCOegGkD8SFQAhDQd5trTR565vDURCsT49vq0Qs/edit#gid=1943100504)!
 
 ---
 
