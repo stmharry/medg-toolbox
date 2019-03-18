@@ -280,6 +280,9 @@ Ever feel frustrated when
     session = tf.Session(config=config, ...)
     ```
 - Set `CUDA_VISIBLE_DEVICES` environment variable before running the program
+    ```bash
+    remote~$ CUDA_VISIBLE_DEVICES=0 python mine-ethereum-hehe.py 
+    ```
 - Fill in [GPU allocation sheets](https://docs.google.com/spreadsheets/d/10hdQNCOegGkD8SFQAhDQd5trTR565vDURCsT49vq0Qs/edit#gid=1943100504)!
 
 ---
@@ -323,7 +326,7 @@ Ever feel frustrated when
 2. Identify a dataset root (e.g., `/data/medg/misc/definitely-not-cryptomining`) with the correct group access (`chgrp -R ...`).
 ---
 3. Locate a folder for code (e.g., `~/definitely-not-cryptomining`). Note that the code should be only accessible by you; any code sharing should happen over version control software.
-4. Find a local working root directory (e.g. `/scratch/definitely-not-cryptomining`), and sync data over with `scp`.
+4. Find a local working root directory (e.g. `/scratch/definitely-not-cryptomining`), and sync data over with `rsync`.
 ---
 5. (Optional, but extremely recommended) Instantiate a shared virtual environment in the local directory.
 6. Happy coding.
