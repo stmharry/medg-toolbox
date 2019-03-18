@@ -249,11 +249,27 @@ fi
 
 
 
+## Machines
+
+
+| Name        | Memory  | GPU                     | Best used for              |
+|-------------|---------|-------------------------|----------------------------|
+| nightingale | 1008 GB | 4 x GeForce GTX TITAN X | CPU memory intensive tasks |
+| harrison    | 126 GB  | 4 x GeForce GTX TITAN X | GPU intensive tasks        |
+| gray        | 126 GB  | 4 x GeForce GTX TITAN X | GPU intensive tasks        |
+| safar       | 193 GB  |                         | CPU intensive tasks        |
+
+- Transfer files between machines with `rsync` rather than using shared disk
+
+
+
 ## GPU (Very important!)
 
 Ever feel frustrated when
 - some takes all available GPU memory but not actually performing any computation?
 - managing multiple experiments running on multiple machines?
+
+
 
 #### No sweat!
 
@@ -282,12 +298,14 @@ Ever feel frustrated when
 (Information in the table may not be accurate, please correct me)
 (Need discussion here)
 
-| type                     | mount path                             | purpose                         | backup                          |
-|--------------------------|----------------------------------------|---------------------------------|---------------------------------|
-| AFS                      | `~` or `/afs/csail.mit.edu/u/m/$MY_ID` | lightweight files (code, cache) | `~/.snapshot`                   |
-| NFS (production tier)    | `/data/medg`                           | (raw data)?                     | `/data/medg/misc/.zfs/snapshot` |
-| Local (on `nightingale`) | `/crimea`                              | datasets                        |                                 |
-| Local (each machine)     | `/scratch`                             | (cached data, models)?          |                                 |
+| Type                  | Mount path                             | Purpose                         | Backup                          |
+|-----------------------|----------------------------------------|---------------------------------|---------------------------------|
+| AFS                   | `~` or `/afs/csail.mit.edu/u/m/$MY_ID` | lightweight files (code, cache) | `~/.snapshot`                   |
+| NFS (production tier) | `/data/medg`                           | (raw data)?                     | `/data/medg/misc/.zfs/snapshot` |
+| Local (each machine)  | `/crimea`                              | datasets                        |                                 |
+| Local (each machine)  | `/scratch`                             | (cached data, models)?          |                                 |
+
+
 
 #### Notes
 
